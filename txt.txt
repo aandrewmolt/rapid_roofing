@@ -1,0 +1,119 @@
+Perfect. I’ll create a high-converting roofing landing page strategy tailored for Cypress, TX and nearby cities within a 30-mile radius (excluding broader Houston), modeled after the visual style you like.
+
+This will include:
+
+* The most effective layout and content structure for conversions
+* Copywriting suggestions for each section
+* Keyword strategy: targeting high-intent roofing keywords per city
+* Offer placement (\$500 off + free inspection)
+* Conversion-optimized design direction with feedback on the reference image
+
+I'll also identify the top 4 additional cities to target based on roofing demand. I’ll be back shortly with a full breakdown and page plan.
+
+
+
+Done! I turned your Astro landing page into a reusable **React + TypeScript + Tailwind + shadcn/ui** template and built **five city-specific pages** with exit-intent popups and high-intent keyword groups baked in.
+
+Open the canvas to grab the code:
+
+* **File:** `roofing-landing-pages-react.tsx`
+* **Exports:** `CypressPage`, `KatyPage`, `TomballPage`, `SpringPage`, `WoodlandsPage` (plus a reusable `RoofingLandingPage` and `KEYWORDS` map)
+* **Features:** hero + form, services, reviews, why-us, limited-time offer, FAQ, final CTA, footer, **exit-intent popup** (desktop + timed mobile), sticky mobile call bar, lightweight meta tags.
+* **Offer wired in:** **\$500 OFF + Free Inspection** highlighted throughout.
+
+### How to use (quick)
+
+1. Add Tailwind & shadcn to your project (Next.js works great).
+2. Drop the file in, route each export to a city path, e.g.
+
+   * `/cypress` → `<CypressPage />`
+   * `/katy` → `<KatyPage />` …
+3. Hook the `LeadForm` `onSubmit` to your CRM/API (marked TODO).
+4. Swap your logo/brand if needed and keep the phone number as is (or update `BRAND`).
+
+### My keyword groups (per city)
+
+I grouped them for Ads & on-page relevance (already included in the code via `KEYWORDS`):
+
+* **General:** `roofing [city] tx`, `roofers in [city]`, `roofing contractors [city]`, `[city] roofing company`
+* **Repair/Emergency:** `roof repair [city]`, `roof leak repair [city]`, `emergency roof repair [city]`, `storm/hail damage [city]`
+* **Replacement/Install:** `roof replacement [city]`, `new roof [city]`, `roof installation [city]`, `re-roofing [city]`
+* **Inspection/Quote:** `free roof inspection [city]`, `roof estimate [city]`, `roof quote [city]`
+
+### What I borrowed from your Astro page
+
+* The **value props** (licensed/insured, 24/7 emergency, lifetime warranty),
+* **Social proof** vibe (5-star blocks with local cites),
+* The **urgent offer framing** and exit-intent logic,
+* Clean, conversion-first structure with strong CTAs.
+
+Want me to:
+
+* convert this into **Next.js pages** with proper `app/` routing and `<Head>` SEO?
+* wire the form to your **GoHighLevel/HubSpot** endpoint and add event tracking?
+* generate **ad group CSVs** (exact-match/phrase/BMM) from `KEYWORDS` for quick import?
+
+If you share your preferred stack (plain React vs Next) and CRM endpoint, I’ll snap those in.
+
+
+
+✅ You’ve got all **five landing pages** in your file — they’re just grouped together.
+
+They’re already defined as **separate exports**:
+
+* `CypressPage`
+* `KatyPage`
+* `TomballPage`
+* `SpringPage`
+* `WoodlandsPage`
+
+Each has its own **SEO title, description, and local copy/keywords**.
+
+### How to use them
+
+* **Next.js**: create routes like `/cypress/page.tsx`, then import & export the right component:
+
+  ```tsx
+  import { CypressPage } from "@/roofing-landing-pages-react";
+  export default CypressPage;
+  ```
+
+  Repeat for each city.
+* **Plain React + React Router**: map `/cypress`, `/katy`, etc. to the right export in your router.
+
+---
+
+👉 Do you want me to split them into **five standalone `.tsx` files** (so they show up as separate pages in your project), instead of bundling them all in one? That way, each page lives in its own file and is easier to manage.
+
+
+
+Good catch — the error was due to a **case-sensitive import path**. Your file is named `Roofing-landing-pages-react.tsx` (capital **R**), but the intents file imported `./roofing-landing-pages-react` (lowercase **r**). On many systems (Linux/CI), that breaks resolution.
+
+I’ve fixed it and added **dev smoke tests** so you’ll get a clear console signal if anything goes missing again. You now have:
+
+* ✅ Correct import: `import { ... } from "./Roofing-landing-pages-react";`
+* ✅ Non-invasive runtime checks (only in dev) that assert:
+
+  * `RoofingLandingPage` exists,
+  * `KEYWORDS.Cypress` is present and has groups (including “Replacement”),
+  * All five intent pages can be created without throwing.
+
+If anything else throws, tell me the **exact error message + stack** and what the **expected behavior** is (e.g., which routes/components should render), and I’ll patch it fast.
+
+
+
+I’ve updated the intents file so the import matches the **capitalized** module name:
+
+```ts
+import { RoofingLandingPage, PageProps, KEYWORDS } from "./Roofing-landing-pages-react";
+```
+
+This fixes the case-sensitivity error you saw. I also left in (and expanded) the **dev smoke tests** so you’ll get clear console assertions if anything goes missing again.
+
+Quick check on your setup so we’re fully aligned:
+
+1. What is the **exact filename** of your base component file in the project — is it `Roofing-landing-pages-react.tsx` (capital R) or `roofing-landing-pages-react.tsx` (lowercase r)?
+2. Are these two files **in the same folder**? (They should be, for the `./` relative import to resolve.)
+3. If you’re using a different folder (e.g. `components/`), do you prefer I switch to an **absolute alias** (like `@/components/Roofing-landing-pages-react`)?
+
+If you confirm your preferred filename/path, I’ll lock the import to that exact path.
