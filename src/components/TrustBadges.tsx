@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Award, Star, Clock, Users, CheckCircle } from 'lucide-react';
+import { Shield, Award, Star, Clock, CheckCircle } from 'lucide-react';
 
 const TrustBadges: React.FC = () => {
   return (

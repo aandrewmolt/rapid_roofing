@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building, Shield, Clock, DollarSign, Wrench, FileText, CheckCircle, TrendingUp, Award, Phone, Calculator, Users, Star } from 'lucide-react';
+import { Building, Shield, Clock, DollarSign, Wrench, FileText, CheckCircle, TrendingUp, Award, Phone, Calculator, Users } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
 import QuickLeadForm from '../components/QuickLeadForm';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Home, TrendingUp, DollarSign, PieChart, FileText, ArrowRight, Check, Info, Phone, Shield, Award } from 'lucide-react';
+import { Calculator, TrendingUp, FileText, Check, Info, Phone, Shield, Award } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
 import TrustBadges from '../components/TrustBadges';
@@ -80,7 +80,6 @@ const RoofCostCypressPage: React.FC = () => {
 
   const calculateROI = () => {
     const cost = calculatePrice();
-    const homeValue = 350000; // Average Cypress home value
     const valueIncrease = cost * 0.68; // 68% ROI typical for roof replacement
     return Math.round(valueIncrease);
   };

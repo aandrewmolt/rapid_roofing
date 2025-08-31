@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, FileText, Camera, CheckCircle, AlertCircle, Shield, CloudRain, Wind, Home, DollarSign, Clock } from 'lucide-react';
+import { Phone, FileText, Camera, CheckCircle, AlertCircle, Shield, DollarSign, Clock } from 'lucide-react';
 
 const StormDamagePage: React.FC = () => {
   const [damageType, setDamageType] = useState('');

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { CloudRain, Wind, AlertTriangle, Shield, FileText, Camera, CheckCircle, DollarSign, Clock, MapPin, Zap, Phone } from 'lucide-react';
+import { Wind, AlertTriangle, Shield, FileText, Camera, CheckCircle, DollarSign, Clock, MapPin } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
-import QuickLeadForm from '../components/QuickLeadForm';
 
 const StormDamageHoustonPage: React.FC = () => {
   const [selectedDamage, setSelectedDamage] = useState<string[]>([]);

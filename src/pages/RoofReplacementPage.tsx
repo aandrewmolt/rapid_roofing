@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Calculator, Home, TrendingUp, Award, Calendar, DollarSign, ChevronRight, Check, X } from 'lucide-react';
+import { Phone, Calculator, TrendingUp, Award, Calendar, DollarSign, Check } from 'lucide-react';
 
 const RoofReplacementPage: React.FC = () => {
   const [roofSize, setRoofSize] = useState(2000);

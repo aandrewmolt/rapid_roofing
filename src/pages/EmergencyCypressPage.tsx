@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, AlertTriangle, Clock, Shield, MapPin, Star, MessageCircle, ChevronRight, CheckCircle, Zap, Award } from 'lucide-react';
+import { Phone, AlertTriangle, Clock, Shield, MapPin, Star, ChevronRight, CheckCircle, Zap, Award } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
 import TrustBadges from '../components/TrustBadges';
@@ -9,30 +9,19 @@ import SEOHead from '../components/SEOHead';
 import QuickLeadForm from '../components/QuickLeadForm';
 
 const EmergencyCypressPage: React.FC = () => {
-  const [timeElapsed, setTimeElapsed] = useState(0);
   const [showChat, setShowChat] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeElapsed(prev => prev + 1);
-    }, 1000);
-    
     // Show chat after 10 seconds
     const chatTimer = setTimeout(() => {
       setShowChat(true);
     }, 10000);
 
     return () => {
-      clearInterval(timer);
       clearTimeout(chatTimer);
     };
   }, []);
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${String(secs).padStart(2, '0')}`;
-  };
 
   const emergencySteps = [
     { time: 'Within 5 min', action: 'Your call answered by local team' },
