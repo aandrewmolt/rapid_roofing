@@ -62,14 +62,15 @@ const FloatingCTA: React.FC = () => {
         )}
       </div>
 
-      {/* Mobile-only sticky call bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40">
+      {/* Mobile floating button - less intrusive */}
+      <div className="lg:hidden fixed bottom-20 left-4 z-40">
         <a
           href="tel:2817981357"
-          className="flex items-center justify-center bg-brand-gold text-white py-4 font-bold text-lg hover:bg-brand-gold-light transition-colors"
+          className="flex items-center bg-brand-gold text-white px-4 py-3 rounded-full font-bold text-sm shadow-lg hover:bg-brand-gold-light transition-all transform hover:scale-105"
+          aria-label="Call Now"
         >
-          <Phone className="w-5 h-5 mr-2" />
-          Call Now: (281) 798-1357
+          <Phone className="w-4 h-4 mr-2" />
+          Call
         </a>
       </div>
     </>

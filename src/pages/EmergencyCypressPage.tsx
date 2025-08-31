@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, AlertTriangle, Clock, Shield, MapPin, Star, MessageCircle, ChevronRight, CheckCircle, Zap } from 'lucide-react';
+import { Phone, AlertTriangle, Clock, Shield, MapPin, Star, MessageCircle, ChevronRight, CheckCircle, Zap, Award } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
 import TrustBadges from '../components/TrustBadges';
 import ImageGallery from '../components/ImageGallery';
 import FloatingCTA from '../components/FloatingCTA';
 import SEOHead from '../components/SEOHead';
+import QuickLeadForm from '../components/QuickLeadForm';
 
 const EmergencyCypressPage: React.FC = () => {
   const [timeElapsed, setTimeElapsed] = useState(0);
@@ -58,61 +59,71 @@ const EmergencyCypressPage: React.FC = () => {
       <Header />
       <TrustBadges />
       
-      {/* Emergency Alert Bar */}
-      <div className="bg-red-600 text-white py-2 animate-pulse">
-        <div className="container mx-auto px-4 flex items-center justify-center gap-2">
-          <AlertTriangle className="w-5 h-5" />
-          <span className="font-bold">EMERGENCY CREWS AVAILABLE NOW IN CYPRESS TX</span>
-          <AlertTriangle className="w-5 h-5" />
+      {/* Emergency Alert Bar - Compressed for mobile */}
+      <div className="bg-red-600 text-white py-1.5 animate-pulse">
+        <div className="container mx-auto px-2 flex items-center justify-center gap-1 sm:gap-2">
+          <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5" />
+          <span className="font-bold text-xs sm:text-sm">EMERGENCY CREWS AVAILABLE NOW</span>
+          <AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5" />
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-gray-900 to-brand-navy text-white py-16">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="bg-gradient-to-b from-gray-900 to-brand-navy text-white py-6 sm:py-10 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Location Badge */}
-            <div className="flex items-center justify-center mb-6">
-              <div className="bg-brand-gold text-white px-6 py-2 rounded-full inline-flex items-center">
-                <MapPin className="w-5 h-5 mr-2" />
-                <span className="font-bold">Serving All of Cypress, TX 77433, 77429, 77410</span>
+            {/* Trust Signals - Above fold on mobile */}
+            <div className="flex flex-wrap justify-center gap-3 mb-4">
+              <div className="flex items-center gap-1 text-sm">
+                <Award className="w-4 h-4 text-brand-gold" />
+                <span className="text-white/90">GAF Certified</span>
+              </div>
+              <div className="flex items-center gap-1 text-sm">
+                <Shield className="w-4 h-4 text-green-400" />
+                <span className="text-white/90">Licensed & Insured</span>
+              </div>
+              <div className="flex items-center gap-1 text-sm">
+                <Clock className="w-4 h-4 text-red-400" />
+                <span className="text-white/90">24/7 Emergency</span>
               </div>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-black text-center mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-center mb-3 sm:mb-4">
               EMERGENCY ROOF REPAIR
-              <span className="block text-brand-gold">CYPRESS, TEXAS</span>
+              <span className="block text-brand-gold text-2xl sm:text-3xl lg:text-5xl mt-1">CYPRESS, TEXAS</span>
             </h1>
 
-            <p className="text-xl text-center mb-8 text-gray-200 max-w-4xl mx-auto">
-              Licensed roofing professionals providing 24/7 emergency services to Cypress homeowners. 
-              Rapid response • Insurance approved • 25-year workmanship warranty
-            </p>
-
-            {/* Emergency Response Info */}
-            <div className="bg-black/20 backdrop-blur rounded-xl p-6 max-w-3xl mx-auto mb-8">
-              <div className="text-center">
-                <p className="text-gray-300 mb-3 text-lg font-semibold">Emergency crews standing by</p>
-                <div className="text-2xl font-bold text-brand-gold mb-3">Average Response Time: 47 minutes</div>
-                <p className="text-base text-gray-200">Professional assessment and immediate damage prevention</p>
-              </div>
+            {/* Response Time Badge - Critical trust signal */}
+            <div className="bg-white/10 backdrop-blur rounded-lg px-4 py-2 max-w-fit mx-auto mb-4">
+              <p className="text-brand-gold font-bold text-lg sm:text-xl">⚡ 47 Min Response Time</p>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* Single Primary CTA - Phone */}
+            <div className="mb-4">
               <a
                 href="tel:2817981357"
-                className="inline-flex items-center justify-center bg-red-600 text-white px-10 py-6 rounded-lg text-xl font-bold hover:bg-red-700 transition-all transform hover:scale-105 shadow-2xl animate-emergency"
+                className="inline-flex items-center justify-center bg-red-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg text-lg sm:text-xl font-bold hover:bg-red-700 transition-all transform hover:scale-105 shadow-2xl animate-pulse mx-auto w-full sm:w-auto"
               >
-                <Phone className="w-6 h-6 mr-3" />
-                CALL EMERGENCY LINE NOW
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
+                CALL NOW: (281) 798-1357
               </a>
+            </div>
+
+            {/* Quick Lead Form - For non-phone users */}
+            <QuickLeadForm 
+              variant="inline" 
+              buttonText="Get Help Now"
+              placeholder="Quick quote: Your phone #"
+            />
+            
+            {/* Secondary Actions - Below primary CTA */}
+            <div className="mt-6 text-center">
+              <p className="text-sm text-gray-300 mb-2">Or tap for other options:</p>
               <button
                 onClick={() => setShowChat(true)}
-                className="inline-flex items-center justify-center bg-brand-gold text-white px-10 py-6 rounded-lg text-xl font-bold hover:bg-brand-gold-light transition-colors animate-pulse-gold"
+                className="text-brand-gold underline text-sm hover:text-brand-gold-light"
               >
-                <MessageCircle className="w-6 h-6 mr-3" />
-                Start Live Chat
+                💬 Start Live Chat
               </button>
             </div>
           </div>

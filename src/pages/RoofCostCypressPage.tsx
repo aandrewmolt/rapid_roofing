@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Calculator, Home, TrendingUp, DollarSign, PieChart, FileText, ArrowRight, Check, Info } from 'lucide-react';
+import { Calculator, Home, TrendingUp, DollarSign, PieChart, FileText, ArrowRight, Check, Info, Phone, Shield, Award } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
 import TrustBadges from '../components/TrustBadges';
 import ImageGallery from '../components/ImageGallery';
 import FloatingCTA from '../components/FloatingCTA';
+import QuickLeadForm from '../components/QuickLeadForm';
 
 const RoofCostCypressPage: React.FC = () => {
   const [homeSize, setHomeSize] = useState(2500);
@@ -96,27 +97,68 @@ const RoofCostCypressPage: React.FC = () => {
       <Header />
       <TrustBadges />
 
-      {/* Hero with Calculator */}
-      <section className="bg-gradient-to-br from-brand-navy via-brand-blue/10 to-white py-16">
+      {/* Hero with Calculator - Mobile Optimized */}
+      <section className="bg-gradient-to-br from-brand-navy via-brand-blue/10 to-white py-6 sm:py-10 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* SEO-Optimized Heading */}
-            <div className="text-center mb-8">
-              <h1 className="text-5xl lg:text-6xl font-bold mb-4">
-                Roof Replacement Cost Calculator
-                <span className="block text-brand-blue mt-2">Cypress, TX 2024</span>
+            {/* Trust Signals First */}
+            <div className="flex flex-wrap justify-center gap-3 mb-3">
+              <div className="flex items-center gap-1 text-xs sm:text-sm">
+                <Award className="w-4 h-4 text-brand-gold" />
+                <span className="text-gray-700">GAF Certified</span>
+              </div>
+              <div className="flex items-center gap-1 text-xs sm:text-sm">
+                <Shield className="w-4 h-4 text-green-600" />
+                <span className="text-gray-700">Accurate Pricing</span>
+              </div>
+              <div className="flex items-center gap-1 text-xs sm:text-sm">
+                <Calculator className="w-4 h-4 text-brand-blue" />
+                <span className="text-gray-700">Instant Quote</span>
+              </div>
+            </div>
+            
+            {/* Compressed Heading */}
+            <div className="text-center mb-4">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-2">
+                Roof Cost Calculator
+                <span className="block text-brand-blue text-xl sm:text-2xl lg:text-3xl mt-1">Cypress, TX</span>
               </h1>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Get instant, accurate roofing prices for Cypress homes. Updated pricing for 77433, 77429, and 77410 zip codes.
+              <p className="text-sm sm:text-base text-gray-600 px-4">
+                Instant pricing for your zip code
               </p>
             </div>
 
-            {/* Main Calculator */}
+            {/* Quick Price Range - Above fold */}
+            <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
+              <div className="text-center">
+                <p className="text-sm text-gray-600 mb-2">Average Cypress Home (2,500 sq ft):</p>
+                <div className="text-3xl sm:text-4xl font-bold text-brand-blue mb-2">
+                  $8,500 - $15,000
+                </div>
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <a
+                    href="tel:2817981357"
+                    className="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition-colors flex items-center gap-2"
+                  >
+                    <Phone className="w-5 h-5" />
+                    Get Exact Quote Now
+                  </a>
+                </div>
+                <QuickLeadForm 
+                  variant="inline"
+                  buttonText="Calculate My Cost"
+                  placeholder="Your phone for detailed quote"
+                />
+              </div>
+            </div>
+            
+            {/* Detailed Calculator - Can be below fold on mobile */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="bg-brand-blue text-white p-6">
-                <h2 className="text-2xl font-bold flex items-center">
-                  <Calculator className="w-6 h-6 mr-2" />
-                  Personalized Roof Replacement Quote for Cypress
+              <div className="bg-brand-blue text-white p-4 sm:p-6">
+                <h2 className="text-lg sm:text-2xl font-bold flex items-center">
+                  <Calculator className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
+                  <span className="hidden sm:inline">Personalized Roof Replacement Quote for Cypress</span>
+                  <span className="sm:hidden">Customize Your Quote</span>
                 </h2>
               </div>
 

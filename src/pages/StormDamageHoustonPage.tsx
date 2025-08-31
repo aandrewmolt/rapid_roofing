@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { CloudRain, Wind, AlertTriangle, Shield, FileText, Camera, CheckCircle, DollarSign, Clock, MapPin, Zap } from 'lucide-react';
+import { CloudRain, Wind, AlertTriangle, Shield, FileText, Camera, CheckCircle, DollarSign, Clock, MapPin, Zap, Phone } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
+import QuickLeadForm from '../components/QuickLeadForm';
 
 const StormDamageHoustonPage: React.FC = () => {
   const [selectedDamage, setSelectedDamage] = useState<string[]>([]);
@@ -72,25 +73,22 @@ const StormDamageHoustonPage: React.FC = () => {
         </div>
       )}
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-brand-navy text-white py-16">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-brand-navy text-white py-6 sm:py-10 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Weather Icons Animation */}
-            <div className="flex justify-center gap-4 mb-6">
-              <CloudRain className="w-12 h-12 text-blue-400 animate-bounce" />
-              <Wind className="w-12 h-12 text-gray-400 animate-pulse" />
-              <Zap className="w-12 h-12 text-yellow-400 animate-pulse" />
+            {/* 98% Claims Approved Badge */}
+            <div className="bg-green-500/20 border border-green-400/30 rounded-lg px-3 py-1.5 max-w-fit mx-auto mb-3">
+              <p className="text-green-400 font-bold text-sm flex items-center gap-1">
+                <CheckCircle className="w-4 h-4" />
+                98% Claims Approved
+              </p>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold text-center mb-6">
-              Storm Damage Roof Repair
-              <span className="block text-brand-gold mt-2">Houston & Cypress Area</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-center mb-3">
+              Storm Damage Claims
+              <span className="block text-brand-gold text-2xl sm:text-3xl lg:text-4xl mt-1">Houston & Cypress</span>
             </h1>
-
-            <p className="text-xl text-center mb-8 text-gray-200 max-w-3xl mx-auto">
-              Insurance claim experts • We fight for maximum coverage • No out-of-pocket costs
-            </p>
 
             {/* Quick Stats */}
             <div className="grid md:grid-cols-4 gap-4 mb-8 max-w-4xl mx-auto">

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Building, Shield, Clock, DollarSign, Wrench, FileText, CheckCircle, TrendingUp, Award, Phone, Calculator, Users } from 'lucide-react';
+import { Building, Shield, Clock, DollarSign, Wrench, FileText, CheckCircle, TrendingUp, Award, Phone, Calculator, Users, Star } from 'lucide-react';
 import Header from '../components/Header';
 import LandingPageFooter from '../components/LandingPageFooter';
+import QuickLeadForm from '../components/QuickLeadForm';
 
 const CommercialCypressPage: React.FC = () => {
   const [businessType, setBusinessType] = useState('');
@@ -48,52 +49,79 @@ const CommercialCypressPage: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-brand-navy via-brand-blue to-brand-navy text-white py-16">
+      <section className="bg-gradient-to-r from-brand-navy via-brand-blue to-brand-navy text-white py-6 sm:py-10 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Trust Indicators */}
-            <div className="flex justify-center gap-6 mb-6">
-              <div className="bg-white/20 backdrop-blur px-4 py-2 rounded-full inline-flex items-center">
-                <Shield className="w-5 h-5 mr-2 text-brand-gold" />
-                <span className="font-semibold">$5M Insurance</span>
+            {/* B2B Trust Signals */}
+            <div className="flex flex-wrap justify-center gap-3 mb-6">
+              <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-full inline-flex items-center">
+                <Building className="w-4 h-4 mr-2 text-brand-gold" />
+                <span className="font-semibold text-sm sm:text-base">500+ Commercial Projects</span>
               </div>
-              <div className="bg-white/20 backdrop-blur px-4 py-2 rounded-full inline-flex items-center">
-                <Award className="w-5 h-5 mr-2 text-brand-gold" />
-                <span className="font-semibold">GAF Certified</span>
+              <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-full inline-flex items-center">
+                <DollarSign className="w-4 h-4 mr-2 text-brand-gold" />
+                <span className="font-semibold text-sm sm:text-base">Net 30 Terms</span>
+              </div>
+              <div className="bg-white/20 backdrop-blur px-3 py-2 rounded-full inline-flex items-center">
+                <Shield className="w-4 h-4 mr-2 text-brand-gold" />
+                <span className="font-semibold text-sm sm:text-base">$5M Insurance</span>
               </div>
             </div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold text-center mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-center mb-4">
               Commercial Roofing Contractors
               <span className="block text-brand-gold mt-2">Cypress, TX</span>
             </h1>
 
-            <p className="text-xl text-center mb-8 text-gray-200 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-center mb-6 text-gray-200 max-w-3xl mx-auto">
               Minimal business disruption • Weekend/night work available • 
               Maintenance plans • All commercial roof types
             </p>
 
-            {/* Quick Stats */}
-            <div className="grid md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {/* Primary CTA - Phone */}
+            <div className="text-center mb-6">
+              <a
+                href="tel:2817981357"
+                className="inline-flex items-center bg-brand-gold text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-brand-gold-light transition-colors mb-4 shadow-lg"
+              >
+                <Phone className="w-6 h-6 mr-3" />
+                Get Commercial Quote: (281) 798-1357
+              </a>
+              <p className="text-sm text-gray-300">
+                Free assessment • Net 30 available • Weekend scheduling
+              </p>
+            </div>
+
+            {/* Quick Lead Form with Company Field */}
+            <div className="max-w-md mx-auto mb-8">
+              <QuickLeadForm 
+                placeholder="Company name & address"
+                buttonText="Get Commercial Quote"
+                showCompanyField={true}
+              />
+            </div>
+
+            {/* Quick Stats - Compact for mobile */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto">
               <div className="text-center">
-                <Building className="w-10 h-10 text-brand-gold mx-auto mb-2" />
-                <p className="text-2xl font-bold">500+</p>
-                <p className="text-sm">Commercial Projects</p>
+                <Building className="w-8 h-8 text-brand-gold mx-auto mb-1" />
+                <p className="text-xl font-bold">500+</p>
+                <p className="text-xs sm:text-sm">Commercial Projects</p>
               </div>
               <div className="text-center">
-                <Clock className="w-10 h-10 text-brand-gold mx-auto mb-2" />
-                <p className="text-2xl font-bold">24/7</p>
-                <p className="text-sm">Emergency Service</p>
+                <Clock className="w-8 h-8 text-brand-gold mx-auto mb-1" />
+                <p className="text-xl font-bold">24/7</p>
+                <p className="text-xs sm:text-sm">Emergency Service</p>
               </div>
               <div className="text-center">
-                <DollarSign className="w-10 h-10 text-brand-gold mx-auto mb-2" />
-                <p className="text-2xl font-bold">Net 30</p>
-                <p className="text-sm">Payment Terms</p>
+                <DollarSign className="w-8 h-8 text-brand-gold mx-auto mb-1" />
+                <p className="text-xl font-bold">Net 30</p>
+                <p className="text-xs sm:text-sm">Payment Terms</p>
               </div>
               <div className="text-center">
-                <Users className="w-10 h-10 text-brand-gold mx-auto mb-2" />
-                <p className="text-2xl font-bold">15+</p>
-                <p className="text-sm">Crew Members</p>
+                <Users className="w-8 h-8 text-brand-gold mx-auto mb-1" />
+                <p className="text-xl font-bold">15+</p>
+                <p className="text-xs sm:text-sm">Crew Members</p>
               </div>
             </div>
           </div>
