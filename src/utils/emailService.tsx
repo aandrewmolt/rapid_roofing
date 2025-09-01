@@ -59,7 +59,7 @@ export const sendFormEmail = async (
     const response = await emailjs.send(
       EMAILJS_CONFIG.SERVICE_ID,
       EMAILJS_CONFIG.TEMPLATE_ID,
-      templateParams
+      templateParams as Record<string, unknown>
     );
 
     if (response.status === 200) {

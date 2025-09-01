@@ -72,13 +72,28 @@ const LeadForm: React.FC<{ city: string; isPopup?: boolean; onClose?: () => void
     address: '',
     service: 'inspection'
   });
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Replace with your CRM endpoint
-    console.log('Form submitted:', { ...formData, city, timestamp: new Date().toISOString() });
-    alert(`Thank you! We'll contact you within 30 minutes about your ${city} roofing needs.`);
-    if (onClose) onClose();
+    setSubmitStatus('loading');
+    
+    // Send email via EmailJS
+    const result = await sendFormEmail(formData, city, window.location.pathname);
+    
+    if (result.success) {
+      setSubmitStatus('success');
+      setStatusMessage(result.message);
+      // Reset form after 3 seconds if successful
+      setTimeout(() => {
+        setFormData({ name: '', phone: '', email: '', address: '', service: 'inspection' });
+        if (onClose) onClose();
+      }, 3000);
+    } else {
+      setSubmitStatus('error');
+      setStatusMessage(result.message);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
