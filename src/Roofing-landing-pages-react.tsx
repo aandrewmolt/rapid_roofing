@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Phone, CheckCircle, Clock, Shield, Award, Star, Home, Droplets, Wind, X, ChevronRight, AlertCircle } from 'lucide-react';
+import LandingHeader from './components/LandingHeader';
+import LandingPageFooter from './components/LandingPageFooter';
 
 export interface KeywordGroup {
   label: string;
@@ -270,6 +272,7 @@ export const RoofingLandingPage: React.FC<PageProps> = ({ city, cityDisplay, seo
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <LandingHeader />
       <ExitIntentPopup city={displayCity} />
       <MobileCallBar />
 
@@ -478,33 +481,7 @@ export const RoofingLandingPage: React.FC<PageProps> = ({ city, cityDisplay, seo
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div>
-              <h3 className="text-white font-bold mb-4">{BRAND.logo} {BRAND.name}</h3>
-              <p>Professional roofing services in {displayCity} and surrounding areas.</p>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Service Areas</h4>
-              <ul className="space-y-2">
-                {BRAND.cities.map((c, idx) => (
-                  <li key={idx}>{c}, TX</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-bold mb-4">Contact</h4>
-              <p className="mb-2">{BRAND.phone}</p>
-              <p>Available 24/7 for emergencies</p>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 text-center">
-            <p>&copy; 2024 {BRAND.name}. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <LandingPageFooter />
     </div>
   );
 };
