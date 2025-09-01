@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, CheckCircle, Clock, Shield, Award, Star, AlertTriangle, Zap, X, ChevronRight, AlertCircle } from 'lucide-react';
+import { Phone, CheckCircle, Clock, Shield, Award, Star, AlertTriangle, Zap, X, ChevronRight } from 'lucide-react';
 import LandingHeader from '../components/LandingHeader';
 import LandingPageFooter from '../components/LandingPageFooter';
 import FloatingCTA from '../components/FloatingCTA';
