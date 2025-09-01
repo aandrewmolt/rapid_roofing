@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Wind, AlertTriangle, Shield, FileText, Camera, CheckCircle, DollarSign, Clock, MapPin } from 'lucide-react';
-import Header from '../components/Header';
+import LandingHeader from '../components/LandingHeader';
 import LandingPageFooter from '../components/LandingPageFooter';
 
 const StormDamageHoustonPage: React.FC = () => {
@@ -52,7 +52,7 @@ const StormDamageHoustonPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <LandingHeader />
 
       {/* Storm Alert Banner */}
       {showStormAlert && (

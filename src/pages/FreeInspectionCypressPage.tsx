@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, ClipboardCheck, Camera, FileText, Clock, MapPin, CheckCircle, AlertCircle, Star, Phone, ChevronRight, Shield, Award } from 'lucide-react';
-import Header from '../components/Header';
+import LandingHeader from '../components/LandingHeader';
 import LandingPageFooter from '../components/LandingPageFooter';
 import QuickLeadForm from '../components/QuickLeadForm';
 
@@ -59,7 +59,7 @@ const FreeInspectionCypressPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <LandingHeader />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-brand-blue via-brand-blue/90 to-brand-navy text-white py-6 sm:py-10 lg:py-16">

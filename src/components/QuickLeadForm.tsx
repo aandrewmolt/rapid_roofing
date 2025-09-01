@@ -45,7 +45,7 @@ const QuickLeadForm: React.FC<QuickLeadFormProps> = ({
 
   if (variant === 'inline') {
     return (
-      <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto">
         <div className="space-y-3">
           {showCompanyField && (
             <div className="relative">
@@ -60,8 +60,8 @@ const QuickLeadForm: React.FC<QuickLeadFormProps> = ({
               />
             </div>
           )}
-          <div className="flex flex-col sm:flex-row gap-2">
-            <div className="relative flex-1">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="relative flex-1 min-w-0">
               <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="tel"
@@ -76,7 +76,7 @@ const QuickLeadForm: React.FC<QuickLeadFormProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-brand-gold text-white px-6 py-3 rounded-lg font-bold hover:bg-brand-gold-light transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
+              className="bg-brand-gold text-white px-8 py-3 rounded-lg font-bold hover:bg-brand-gold-light transition-colors flex items-center justify-center gap-2 whitespace-nowrap sm:min-w-[180px]"
             >
               {buttonText}
               <ArrowRight className="w-4 h-4" />

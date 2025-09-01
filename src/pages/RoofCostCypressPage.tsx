@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Calculator, TrendingUp, FileText, Check, Info, Phone, Shield, Award } from 'lucide-react';
-import Header from '../components/Header';
+import LandingHeader from '../components/LandingHeader';
 import LandingPageFooter from '../components/LandingPageFooter';
-import TrustBadges from '../components/TrustBadges';
 import ImageGallery from '../components/ImageGallery';
 import FloatingCTA from '../components/FloatingCTA';
 import QuickLeadForm from '../components/QuickLeadForm';
@@ -93,8 +92,7 @@ const RoofCostCypressPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      <TrustBadges />
+      <LandingHeader />
 
       {/* Hero with Calculator - Mobile Optimized */}
       <section className="bg-gradient-to-br from-brand-navy via-brand-blue/10 to-white py-6 sm:py-10 lg:py-16">

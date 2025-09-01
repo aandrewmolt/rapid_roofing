@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Building, Shield, Clock, DollarSign, Wrench, FileText, CheckCircle, TrendingUp, Award, Phone, Calculator, Users } from 'lucide-react';
-import Header from '../components/Header';
+import LandingHeader from '../components/LandingHeader';
 import LandingPageFooter from '../components/LandingPageFooter';
 import QuickLeadForm from '../components/QuickLeadForm';
 
@@ -46,7 +46,7 @@ const CommercialCypressPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <LandingHeader />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-brand-navy via-brand-blue to-brand-navy text-white py-6 sm:py-10 lg:py-16">

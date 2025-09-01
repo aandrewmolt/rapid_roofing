@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, AlertTriangle, Clock, Shield, MapPin, Star, ChevronRight, CheckCircle, Zap, Award } from 'lucide-react';
-import Header from '../components/Header';
+import LandingHeader from '../components/LandingHeader';
 import LandingPageFooter from '../components/LandingPageFooter';
-import TrustBadges from '../components/TrustBadges';
 import ImageGallery from '../components/ImageGallery';
 import FloatingCTA from '../components/FloatingCTA';
 import SEOHead from '../components/SEOHead';
@@ -45,8 +44,7 @@ const EmergencyCypressPage: React.FC = () => {
         serviceName="Emergency Roof Repair"
         serviceArea="Cypress, TX"
       />
-      <Header />
-      <TrustBadges />
+      <LandingHeader />
       
       {/* Emergency Alert Bar - Compressed for mobile */}
       <div className="bg-red-600 text-white py-1.5 animate-pulse">
