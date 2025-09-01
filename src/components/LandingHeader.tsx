@@ -11,7 +11,7 @@ const LandingHeader: React.FC = () => {
             <img 
               src="/rapid-roofing-logo.png" 
               alt="Rapid Roofing & Construction" 
-              className="h-10 sm:h-12 w-auto"
+              className="h-14 sm:h-18 lg:h-20 w-auto"
               loading="eager"
             />
           </div>

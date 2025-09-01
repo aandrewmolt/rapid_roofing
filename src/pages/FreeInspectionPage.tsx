@@ -77,7 +77,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.name}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent text-base"
       />
 
       <input
@@ -87,7 +87,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.phone}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent text-base"
       />
 
       <input
@@ -97,7 +97,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.email}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent text-base"
       />
 
       <input
@@ -107,14 +107,14 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.address}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent text-base"
       />
 
       <select
         name="concern"
         value={formData.concern}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent text-base"
       >
         <option value="general">General Roof Health Check</option>
         <option value="leak">Possible Leak Issues</option>
@@ -127,7 +127,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         name="timeframe"
         value={formData.timeframe}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
+        className="w-full px-4 py-3 min-h-[44px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent text-base"
       >
         <option value="asap">This Week</option>
         <option value="week">Next Week</option>
@@ -137,7 +137,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
 
       <button
         type="submit"
-        className="w-full bg-brand-blue text-white py-4 rounded-lg font-bold text-lg hover:bg-brand-blue-dark transition-colors duration-200 shadow-lg"
+        className="w-full bg-brand-blue text-white py-4 min-h-[44px] rounded-lg font-bold text-lg hover:bg-brand-blue-dark transition-colors duration-200 shadow-lg"
       >
         {isPopup ? 'Claim Your FREE Inspection →' : 'Schedule FREE Inspection + $500 OFF'}
       </button>
@@ -196,10 +196,10 @@ const ExitIntentPopup: React.FC = () => {
 
 const MobileCallBar: React.FC = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-brand-blue text-white p-4 z-40 md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 bg-brand-blue text-white p-3 z-40 md:hidden shadow-lg border-t-2 border-white/20">
       <a
         href={BRAND.phoneHref}
-        className="flex items-center justify-center space-x-2"
+        className="flex items-center justify-center space-x-2 min-h-[44px] rounded-lg bg-brand-blue hover:bg-brand-blue-dark transition-colors"
         onClick={() => {
           if (typeof window !== 'undefined' && (window as any).gtag) {
             (window as any).gtag('event', 'phone_call', {
@@ -274,7 +274,7 @@ const FreeInspectionPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-16 md:pb-0">
       <SEOHead
         title="FREE Roof Inspection Houston TX | $500 OFF | No Obligation | (281) 798-1357"
         description="FREE professional roof inspection in Houston TX. No obligation. Comprehensive report + $500 OFF repairs. Licensed inspectors. Call (281) 798-1357!"
@@ -289,7 +289,7 @@ const FreeInspectionPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-brand-navy via-brand-blue to-brand-blue-dark text-white">
         <div className="absolute inset-0 bg-black opacity-40"></div>
-        <div className="relative container mx-auto px-4 py-16 lg:py-24">
+        <div className="relative container mx-auto px-4 py-12 sm:py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center bg-brand-gold text-white px-4 py-2 rounded-full mb-6">
@@ -297,20 +297,20 @@ const FreeInspectionPage: React.FC = () => {
                 <span className="font-semibold">100% FREE - No Strings Attached!</span>
               </div>
               
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6">
                 FREE Professional Roof Inspection
-                <span className="block text-brand-gold text-3xl lg:text-4xl mt-2">Know Your Roof's True Condition</span>
+                <span className="block text-brand-gold text-lg sm:text-xl md:text-2xl lg:text-4xl mt-2">Know Your Roof's True Condition</span>
               </h1>
               
-              <p className="text-xl mb-8 text-white/90">
+              <p className="text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 text-white/90">
                 Don't wait for a leak to discover roof problems. Get a comprehensive, 
                 professional inspection at no cost - with no obligation or pressure to buy anything.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <a
                   href={BRAND.phoneHref}
-                  className="inline-flex items-center justify-center bg-brand-gold text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-brand-gold-light transition-colors shadow-xl"
+                  className="inline-flex items-center justify-center bg-brand-gold text-white px-6 sm:px-8 py-4 min-h-[44px] rounded-lg font-bold text-base sm:text-lg hover:bg-brand-gold-light transition-colors shadow-xl"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).gtag) {
                       (window as any).gtag('event', 'phone_call', {
@@ -326,7 +326,7 @@ const FreeInspectionPage: React.FC = () => {
                 </a>
                 <button
                   onClick={() => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center justify-center bg-white text-brand-blue px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-xl"
+                  className="inline-flex items-center justify-center bg-white text-brand-blue px-6 sm:px-8 py-4 min-h-[44px] rounded-lg font-bold text-base sm:text-lg hover:bg-gray-100 transition-colors shadow-xl"
                 >
                   Schedule Inspection
                   <ChevronRight className="w-5 h-5 ml-2" />
