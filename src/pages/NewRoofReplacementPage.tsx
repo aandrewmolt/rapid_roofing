@@ -184,7 +184,7 @@ const ExitIntentPopup: React.FC = () => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl max-w-md w-full relative">
-        <div className="bg-brand-gold text-white p-4 rounded-t-xl">
+        <div className="bg-brand-blue text-white p-4 rounded-t-xl">
           <h2 className="text-2xl font-bold">💎 Premium Offer!</h2>
         </div>
         <LeadForm isPopup={true} onClose={() => setShow(false)} />
@@ -195,10 +195,10 @@ const ExitIntentPopup: React.FC = () => {
 
 const MobileCallBar: React.FC = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-brand-gold text-white p-3 z-40 md:hidden shadow-lg border-t-2 border-white/20">
+    <div className="fixed bottom-0 left-0 right-0 bg-brand-blue text-white p-3 z-40 md:hidden shadow-lg border-t-2 border-white/20">
       <a
         href={BRAND.phoneHref}
-        className="flex items-center justify-center space-x-2 min-h-[44px] rounded-lg bg-brand-gold hover:bg-brand-gold-light transition-colors"
+        className="flex items-center justify-center space-x-2 min-h-[44px] rounded-lg bg-brand-blue hover:bg-brand-blue-dark transition-colors"
         onClick={() => {
           if (typeof window !== 'undefined' && (window as any).gtag) {
             (window as any).gtag('event', 'phone_call', {
@@ -284,7 +284,7 @@ const NewRoofReplacementPage: React.FC = () => {
       <MobileCallBar />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-brand-gold via-brand-gold-light to-brand-gold text-white">
+      <section className="relative bg-gradient-to-br from-brand-navy via-brand-blue to-brand-blue-dark text-white">
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="relative container mx-auto px-4 py-12 sm:py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -542,7 +542,7 @@ const NewRoofReplacementPage: React.FC = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-brand-gold to-brand-gold-light text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Ready to Transform Your Home with a New Roof?
