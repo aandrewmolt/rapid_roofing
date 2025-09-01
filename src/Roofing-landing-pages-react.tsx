@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Phone, CheckCircle, Clock, Shield, Award, Star, Home, Droplets, Wind, X, ChevronRight, AlertCircle } from 'lucide-react';
 import LandingHeader from './components/LandingHeader';
 import LandingPageFooter from './components/LandingPageFooter';
+import { sendFormEmail, FormSuccessMessage, FormErrorMessage } from './utils/emailService';
 
 export interface KeywordGroup {
   label: string;
