@@ -4,7 +4,7 @@ import { CypressPage, KatyPage, TomballPage, SpringPage, WoodlandsPage } from '.
 // Import the new unique pages
 import EmergencyRoofPage from './pages/EmergencyRoofPage';
 import StormDamagePage from './pages/StormDamagePage';
-import RoofReplacementPage from './pages/RoofReplacementPage';
+import RoofReplacementPage from './pages/NewRoofReplacementPage';
 import { 
   RepairTuneupIntentPage, 
   UpgradesIntentPage 

@@ -10,6 +10,7 @@ const BRAND = {
   phone: '(281) 798-1357',
   phoneHref: 'tel:+12817981357',
   logo: '🏠',
+  logoSize: 'text-4xl',
   offer: '$500 OFF + Free Inspection',
   offerDetails: 'Limited time offer for roof repairs',
   trustBadges: ['Licensed & Insured', 'Lifetime Warranty', 'Insurance Specialists']
@@ -59,10 +60,10 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
       
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          <Wrench className="inline w-6 h-6 text-blue-600 mr-2" />
+          <Wrench className="inline w-6 h-6 text-brand-blue mr-2" />
           {isPopup ? 'Wait! Get Your FREE Repair Quote' : 'Get Your FREE Roof Repair Quote'}
         </h3>
-        <p className="text-blue-600 font-semibold text-lg">{BRAND.offer}</p>
+        <p className="text-brand-blue font-semibold text-lg">{BRAND.offer}</p>
         {isPopup && (
           <p className="text-sm text-gray-600 mt-2">Limited spots available this week</p>
         )}
@@ -75,7 +76,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.name}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
       />
 
       <input
@@ -85,7 +86,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.phone}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
       />
 
       <input
@@ -95,7 +96,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.email}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
       />
 
       <input
@@ -105,14 +106,14 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         required
         value={formData.address}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
       />
 
       <select
         name="service"
         value={formData.service}
         onChange={handleChange}
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent"
       >
         <option value="repair">Roof Repair</option>
         <option value="leak">Leak Repair</option>
@@ -123,7 +124,7 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg"
+        className="w-full bg-brand-blue text-white py-4 rounded-lg font-bold text-lg hover:bg-brand-blue-dark transition-colors duration-200 shadow-lg"
       >
         {isPopup ? 'Claim Your $500 OFF Now →' : 'Get Free Repair Quote + $500 OFF'}
       </button>
@@ -171,7 +172,7 @@ const ExitIntentPopup: React.FC = () => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl max-w-md w-full relative">
-        <div className="bg-blue-600 text-white p-4 rounded-t-xl">
+        <div className="bg-brand-blue text-white p-4 rounded-t-xl">
           <h2 className="text-2xl font-bold">⏰ Don't Leave Yet!</h2>
         </div>
         <LeadForm isPopup={true} onClose={() => setShow(false)} />
@@ -182,7 +183,7 @@ const ExitIntentPopup: React.FC = () => {
 
 const MobileCallBar: React.FC = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-blue-600 text-white p-4 z-40 md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 bg-brand-blue text-white p-4 z-40 md:hidden">
       <a
         href={BRAND.phoneHref}
         className="flex items-center justify-center space-x-2"
@@ -262,12 +263,12 @@ const GeneralRepairPage: React.FC = () => {
       <MobileCallBar />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
+      <section className="relative bg-gradient-to-br from-brand-navy via-brand-blue to-brand-blue-dark text-white">
         <div className="absolute inset-0 bg-black opacity-40"></div>
         <div className="relative container mx-auto px-4 py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center bg-orange-500 text-white px-4 py-2 rounded-full mb-6">
+              <div className="inline-flex items-center bg-brand-gold text-white px-4 py-2 rounded-full mb-6">
                 <AlertCircle className="w-5 h-5 mr-2" />
                 <span className="font-semibold">{BRAND.offer} - Limited Time!</span>
               </div>
@@ -285,7 +286,7 @@ const GeneralRepairPage: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <a
                   href={BRAND.phoneHref}
-                  className="inline-flex items-center justify-center bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition-colors shadow-xl"
+                  className="inline-flex items-center justify-center bg-brand-gold text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-brand-gold-light transition-colors shadow-xl"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).gtag) {
                       (window as any).gtag('event', 'phone_call', {
@@ -301,7 +302,7 @@ const GeneralRepairPage: React.FC = () => {
                 </a>
                 <button
                   onClick={() => document.getElementById('hero-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-xl"
+                  className="inline-flex items-center justify-center bg-white text-brand-blue px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-xl"
                 >
                   Get Free Quote
                   <ChevronRight className="w-5 h-5 ml-2" />
@@ -311,7 +312,7 @@ const GeneralRepairPage: React.FC = () => {
               <div className="grid grid-cols-3 gap-4">
                 {BRAND.trustBadges.map((badge, idx) => (
                   <div key={idx} className="flex items-center space-x-2">
-                    <CheckCircle className="w-5 h-5 text-orange-400" />
+                    <CheckCircle className="w-5 h-5 text-brand-gold" />
                     <span className="text-sm">{badge}</span>
                   </div>
                 ))}
@@ -339,8 +340,8 @@ const GeneralRepairPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {repairServices.map((service, idx) => (
-              <div key={idx} className="text-center p-6 rounded-lg hover:shadow-xl transition-shadow bg-blue-50 border border-blue-100">
-                <div className="text-blue-600 mb-4 flex justify-center">{service.icon}</div>
+              <div key={idx} className="text-center p-6 rounded-lg hover:shadow-xl transition-shadow bg-brand-blue/10 border border-brand-blue/20">
+                <div className="text-brand-blue mb-4 flex justify-center">{service.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                 <p className="text-gray-600">{service.desc}</p>
               </div>
@@ -365,15 +366,15 @@ const GeneralRepairPage: React.FC = () => {
             <div className="grid md:grid-cols-4 gap-6">
               {repairProcess.map((item, idx) => (
                 <div key={idx} className="relative">
-                  <div className="bg-white border-2 border-blue-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-                    <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg">
+                  <div className="bg-white border-2 border-brand-blue/20 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+                    <div className="w-12 h-12 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-lg">
                       {item.step}
                     </div>
-                    <h3 className="font-bold text-lg mb-2 text-blue-800">{item.title}</h3>
+                    <h3 className="font-bold text-lg mb-2 text-brand-blue">{item.title}</h3>
                     <p className="text-sm text-gray-700">{item.desc}</p>
                   </div>
                   {idx < repairProcess.length - 1 && (
-                    <ChevronRight className="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-blue-400" />
+                    <ChevronRight className="hidden md:block absolute -right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 text-brand-blue" />
                   )}
                 </div>
               ))}
@@ -399,7 +400,7 @@ const GeneralRepairPage: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {reviews.map((review, idx) => (
-              <div key={idx} className="bg-blue-50 border-2 border-blue-200 p-6 rounded-lg shadow-lg">
+              <div key={idx} className="bg-brand-blue/10 border-2 border-brand-blue/20 p-6 rounded-lg shadow-lg">
                 <div className="flex items-center mb-4">
                   {[...Array(review.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
@@ -408,7 +409,7 @@ const GeneralRepairPage: React.FC = () => {
                 <p className="text-gray-700 mb-4">"{review.text}"</p>
                 <div className="font-semibold">{review.name}</div>
                 <div className="text-sm text-gray-500">{review.location} Resident</div>
-                <div className="text-xs text-blue-600 font-bold mt-2">✓ VERIFIED CUSTOMER</div>
+                <div className="text-xs text-brand-blue font-bold mt-2">✓ VERIFIED CUSTOMER</div>
               </div>
             ))}
           </div>
@@ -432,7 +433,7 @@ const GeneralRepairPage: React.FC = () => {
                   { icon: <CheckCircle />, title: 'Premium Materials Only', desc: 'GAF, Owens Corning, and other top-tier roofing materials.' }
                 ].map((item, idx) => (
                   <div key={idx} className="flex space-x-4">
-                    <div className="text-blue-600 flex-shrink-0">{React.cloneElement(item.icon, { className: 'w-6 h-6' })}</div>
+                    <div className="text-brand-blue flex-shrink-0">{React.cloneElement(item.icon, { className: 'w-6 h-6' })}</div>
                     <div>
                       <h3 className="font-bold mb-1">{item.title}</h3>
                       <p className="text-gray-600">{item.desc}</p>
@@ -442,17 +443,17 @@ const GeneralRepairPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-orange-50 border-2 border-orange-200 p-8 rounded-xl">
-              <div className="bg-orange-500 text-white p-4 rounded-t-lg -mx-8 -mt-8 mb-6">
+            <div className="bg-brand-gold/10 border-2 border-brand-gold/20 p-8 rounded-xl">
+              <div className="bg-brand-gold text-white p-4 rounded-t-lg -mx-8 -mt-8 mb-6">
                 <h3 className="text-2xl font-bold text-center">Limited Time Special</h3>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-orange-500 mb-4">$500 OFF</div>
+                <div className="text-5xl font-bold text-brand-gold mb-4">$500 OFF</div>
                 <div className="text-2xl font-semibold mb-2">+ FREE Inspection</div>
                 <p className="text-gray-600 mb-6">Valid for roof repairs over $2,500</p>
                 <a
                   href={BRAND.phoneHref}
-                  className="inline-flex items-center justify-center bg-orange-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-600 transition-colors w-full"
+                  className="inline-flex items-center justify-center bg-brand-gold text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-brand-gold-light transition-colors w-full"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).gtag) {
                       (window as any).gtag('event', 'phone_call', {
@@ -482,8 +483,8 @@ const GeneralRepairPage: React.FC = () => {
           
           <div className="space-y-6">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-6 shadow-md">
-                <h3 className="font-bold text-lg mb-2 text-blue-800">{faq.q}</h3>
+              <div key={idx} className="bg-brand-blue/10 border-l-4 border-brand-blue rounded-lg p-6 shadow-md">
+                <h3 className="font-bold text-lg mb-2 text-brand-blue">{faq.q}</h3>
                 <p className="text-gray-700">{faq.a}</p>
               </div>
             ))}
@@ -492,7 +493,7 @@ const GeneralRepairPage: React.FC = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-16 bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             Ready to Fix Your Roof the Right Way?
@@ -503,7 +504,7 @@ const GeneralRepairPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={BRAND.phoneHref}
-              className="inline-flex items-center justify-center bg-orange-500 text-white px-12 py-6 rounded-lg font-bold text-2xl hover:bg-orange-600 transition-colors shadow-xl"
+              className="inline-flex items-center justify-center bg-brand-gold text-white px-12 py-6 rounded-lg font-bold text-2xl hover:bg-brand-gold-light transition-colors shadow-xl"
               onClick={() => {
                 if (typeof window !== 'undefined' && (window as any).gtag) {
                   (window as any).gtag('event', 'phone_call', {
@@ -519,7 +520,7 @@ const GeneralRepairPage: React.FC = () => {
             </a>
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-xl"
+              className="inline-flex items-center justify-center bg-white text-brand-blue px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-xl"
             >
               Get Free Quote
               <ChevronRight className="w-5 h-5 ml-2" />
