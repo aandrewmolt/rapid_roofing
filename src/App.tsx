@@ -15,6 +15,11 @@ import RoofCostCypressPage from './pages/RoofCostCypressPage';
 import StormDamageHoustonPage from './pages/StormDamageHoustonPage';
 import FreeInspectionCypressPage from './pages/FreeInspectionCypressPage';
 import CommercialCypressPage from './pages/CommercialCypressPage';
+// Import the new Google Ads landing pages
+import EmergencyRepairPage from './pages/EmergencyRepairPage';
+import GeneralRepairPage from './pages/GeneralRepairPage';
+import FreeInspectionPage from './pages/FreeInspectionPage';
+import LocalRooferPage from './pages/LocalRooferPage';
 
 function App() {
   return (
@@ -45,6 +50,12 @@ function App() {
           <Route path="/storm-damage-houston" element={<StormDamageHoustonPage />} />
           <Route path="/free-inspection-cypress" element={<FreeInspectionCypressPage />} />
           <Route path="/commercial-cypress" element={<CommercialCypressPage />} />
+          
+          {/* New Google Ads landing pages */}
+          <Route path="/emergency-repair" element={<EmergencyRepairPage />} />
+          <Route path="/general-repair" element={<GeneralRepairPage />} />
+          <Route path="/free-inspection" element={<FreeInspectionPage />} />
+          <Route path="/local-roofer" element={<LocalRooferPage />} />
         </Routes>
       </Router>
     </HelmetProvider>
