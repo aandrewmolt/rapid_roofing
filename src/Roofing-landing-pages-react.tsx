@@ -86,7 +86,7 @@ const LeadForm: React.FC<{ city: string; isPopup?: boolean; onClose?: () => void
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`${isPopup ? 'p-6' : 'bg-white rounded-lg shadow-xl p-8'} space-y-4`}>
+    <form onSubmit={handleSubmit} className={`${isPopup ? 'p-4 sm:p-6' : 'bg-white rounded-lg shadow-xl p-6 sm:p-8'} space-y-3 sm:space-y-4`}>
       {isPopup && (
         <button
           type="button"
@@ -159,16 +159,25 @@ const LeadForm: React.FC<{ city: string; isPopup?: boolean; onClose?: () => void
         <option value="emergency">Emergency Service</option>
       </select>
 
-      <button
-        type="submit"
-        className="w-full bg-brand-blue text-white py-4 rounded-lg font-bold text-lg hover:bg-brand-blue-dark transition-colors duration-200 shadow-lg"
-      >
-        {isPopup ? 'Claim Your $500 OFF Now →' : 'Get Free Inspection + $500 OFF'}
-      </button>
+      {submitStatus === 'success' ? (
+        <FormSuccessMessage message={statusMessage} />
+      ) : submitStatus === 'error' ? (
+        <FormErrorMessage message={statusMessage} />
+      ) : (
+        <button
+          type="submit"
+          disabled={submitStatus === 'loading'}
+          className="w-full bg-brand-blue text-white py-4 rounded-lg font-bold text-lg hover:bg-brand-blue-dark transition-colors duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {submitStatus === 'loading' ? 'Sending...' : (isPopup ? 'Claim Your $500 OFF Now →' : 'Get Free Inspection + $500 OFF')}
+        </button>
+      )}
 
-      <p className="text-xs text-gray-500 text-center">
-        By submitting, you agree to receive calls/texts about your roofing project
-      </p>
+      {submitStatus === 'idle' && (
+        <p className="text-xs text-gray-500 text-center">
+          By submitting, you agree to receive calls/texts about your roofing project
+        </p>
+      )}
     </form>
   );
 };
@@ -208,9 +217,9 @@ const ExitIntentPopup: React.FC<{ city: string }> = ({ city }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl max-w-md w-full relative">
-        <div className="bg-brand-gold text-white p-4 rounded-t-xl">
-          <h2 className="text-2xl font-bold">⚠️ Don't Leave Yet!</h2>
+      <div className="bg-white rounded-xl max-w-md w-full relative max-h-[90vh] overflow-y-auto">
+        <div className="bg-brand-gold text-white p-3 sm:p-4 rounded-t-xl sticky top-0 z-10">
+          <h2 className="text-xl sm:text-2xl font-bold">⚠️ Don't Leave Yet!</h2>
         </div>
         <LeadForm city={city} isPopup={true} onClose={() => setShow(false)} />
       </div>

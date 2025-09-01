@@ -4,6 +4,7 @@ import LandingHeader from '../components/LandingHeader';
 import LandingPageFooter from '../components/LandingPageFooter';
 import FloatingCTA from '../components/FloatingCTA';
 import SEOHead from '../components/SEOHead';
+import { sendFormEmail, FormSuccessMessage, FormErrorMessage } from '../utils/emailService';
 
 const BRAND = {
   name: 'Rapid Roofing',
@@ -24,9 +25,12 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
     address: '',
     service: 'repair'
   });
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitStatus('loading');
     
     // Conversion tracking
     if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -37,9 +41,21 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
       });
     }
     
-    console.log('Repair form submitted:', { ...formData, timestamp: new Date().toISOString() });
-    alert(`Thank you! We'll contact you within 30 minutes about your roofing repair needs.`);
-    if (onClose) onClose();
+    // Send email via EmailJS
+    const result = await sendFormEmail(formData, 'Houston', '/general-repair');
+    
+    if (result.success) {
+      setSubmitStatus('success');
+      setStatusMessage(result.message);
+      // Reset form after 3 seconds if successful
+      setTimeout(() => {
+        setFormData({ name: '', phone: '', email: '', address: '', service: 'repair' });
+        if (onClose) onClose();
+      }, 3000);
+    } else {
+      setSubmitStatus('error');
+      setStatusMessage(result.message);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -122,16 +138,25 @@ const LeadForm: React.FC<{ isPopup?: boolean; onClose?: () => void }> = ({ isPop
         <option value="inspection">Free Inspection</option>
       </select>
 
-      <button
-        type="submit"
-        className="w-full bg-brand-blue text-white py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-brand-blue-dark transition-colors duration-200 shadow-lg min-h-[44px]"
-      >
-        {isPopup ? 'Claim Your $500 OFF Now →' : 'Get Free Repair Quote + $500 OFF'}
-      </button>
+      {submitStatus === 'success' ? (
+        <FormSuccessMessage message={statusMessage} />
+      ) : submitStatus === 'error' ? (
+        <FormErrorMessage message={statusMessage} />
+      ) : (
+        <button
+          type="submit"
+          disabled={submitStatus === 'loading'}
+          className="w-full bg-brand-blue text-white py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-brand-blue-dark transition-colors duration-200 shadow-lg min-h-[44px] disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {submitStatus === 'loading' ? 'Sending...' : (isPopup ? 'Claim Your $500 OFF Now →' : 'Get Free Repair Quote + $500 OFF')}
+        </button>
+      )}
 
-      <p className="text-xs text-gray-500 text-center">
-        By submitting, you agree to receive calls/texts about your roofing project
-      </p>
+      {submitStatus === 'idle' && (
+        <p className="text-xs text-gray-500 text-center">
+          By submitting, you agree to receive calls/texts about your roofing project
+        </p>
+      )}
     </form>
   );
 };
@@ -171,9 +196,9 @@ const ExitIntentPopup: React.FC = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl max-w-md w-full relative">
-        <div className="bg-brand-blue text-white p-4 rounded-t-xl">
-          <h2 className="text-2xl font-bold">⏰ Don't Leave Yet!</h2>
+      <div className="bg-white rounded-xl max-w-md w-full relative max-h-[90vh] overflow-y-auto">
+        <div className="bg-brand-blue text-white p-3 sm:p-4 rounded-t-xl sticky top-0 z-10">
+          <h2 className="text-xl sm:text-2xl font-bold">⏰ Don't Leave Yet!</h2>
         </div>
         <LeadForm isPopup={true} onClose={() => setShow(false)} />
       </div>
